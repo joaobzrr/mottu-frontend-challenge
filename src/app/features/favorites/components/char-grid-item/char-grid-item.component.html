@@ -1,0 +1,21 @@
+<div
+  class="inline-flex flex-col overflow-hidden bg-background-primary border border-border rounded-lg whitespace-nowrap w-[calc(100%)]"
+>
+  <div class="relative flex-1 select-none">
+    <app-favorite-button [on]="isFavorite" (clicked)="toggleFavorite()">
+    </app-favorite-button>
+    <img [src]="char.image" [alt]="char.name" class="object-cover" />
+  </div>
+  <div class="flex flex-col p-2">
+    <h3
+      class="inline-block font-creepster text-2xl text-ellipsis overflow-hidden"
+    >
+      {{ char.name }}
+    </h3>
+    <div
+      class="inline-block text-foreground-muted text-ellipsis overflow-hidden"
+    >
+      {{ char.species }}
+    </div>
+  </div>
+</div>

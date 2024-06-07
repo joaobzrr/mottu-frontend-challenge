@@ -1,0 +1,40 @@
+<header
+  class="flex justify-between items-center fixed z-50 top-0 w-full h-[--nav-height] px-4 py-2 bg-background-primary text-white border-b border-border gap-x-4"
+>
+  <a routerLink="/" class="text-creeper-foreground creeper-shadow">
+    <img src="assets/rick-and-morty.png" class="w-[114px]" />
+  </a>
+  <div
+    class="flex min-w-[221px] overflow-hidden border border-border rounded-lg"
+  >
+    <a
+      routerLink="/"
+      [ngClass]="{
+        'flex items-center gap-x-2 px-[--tab-px] py-[--tab-py] font-bold text-sm': true,
+        'bg-white text-background-primary': currentRoute === '/',
+        'text-foreground-muted': currentRoute !== '/',
+      }"
+    >
+      <ng-icon name="bootstrapHouseDoorFill" size="16"> </ng-icon>
+      Início
+    </a>
+    <a
+      routerLink="/favoritos"
+      [ngClass]="{
+        'flex items-center gap-x-2 px-[--tab-px] py-[--tab-py] font-bold text-sm': true,
+        'bg-white text-background-primary': currentRoute === '/favoritos',
+        'text-foreground-muted': currentRoute !== '/favoritos',
+      }"
+    >
+      <ng-icon name="bootstrapHeartFill" size="16"> </ng-icon>
+      Favoritos
+      <div
+        class="items-center justify-center flex w-6 h-6 rounded-full bg-white text-background-primary border border-black"
+      >
+        <ng-container *ngIf="favorites$ | async as favorites">
+          {{ favorites.length }}
+        </ng-container>
+      </div>
+    </a>
+  </div>
+</header>

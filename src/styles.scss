@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-primary: 0 0% 4%;
+    --background-secondary: 0 0% 12%;
+    --foreground: 0 0% 100%;
+    --foreground-muted: 0 0% 64%;
+    --border: 0 0% 24%;
+
+    --nav-height: 64px;
+
+    --creeper-foreground: 187 100% 40%;
+    --creeper-shadow: 75 74% 52%;
+  }
+}
+
+* {
+  min-width: 0;
+  min-height: 0;
+}
+
+html,
+body,
+app-root {
+  height: 100%;
+}
+
+body {
+  font-family: poppins;
+  overflow: auto;
+  background-color: hsl(var(--background-secondary));
+  color: white;
+}
+
+app-root {
+  display: block;
+}
+
+.title {
+  color: hsl(var(--creeper-foreground));
+  text-shadow:
+    -1px -1px 0 hsl(var(--creeper-shadow)),
+    1px -1px 0 hsl(var(--creeper-shadow)),
+    -1px 1px 0 hsl(var(--creeper-shadow)),
+    1px 1px 0 hsl(var(--creeper-shadow));
+}
+
+@media (min-width: 576px) {
+  :root {
+    --tab-px: 1rem;
+    --tab-py: 0.5rem;
+    --creeper-size: 3rem;
+    --grid-col-number: 3;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --tab-px: 0.5rem;
+    --tab-py: 0.25rem;
+    --creeper-size: 2rem;
+    --grid-col-number: 2;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="flex justify-center">
+  <div class="mt-10 px-6 w-full max-w-[1002px]">
+    <div class="flex justify-between items-center mb-10">
+      <h1 class="font-creepster text-[length:--creeper-size] title">Início</h1>
+      <app-search-input> </app-search-input>
+    </div>
+    <div
+      *ngIf="((searchResults$ | async) ?? []).length > 0; else empty"
+      [ngClass]="{ 'pb-10 w-full': true, 'opacity-50': loading$ | async }"
+    >
+      <app-char-grid
+        [chars]="(searchResults$ | async) ?? []"
+        [favorites]="(favorites$ | async) ?? []"
+      >
+      </app-char-grid>
+    </div>
+    <ng-template #empty>
+      <div
+        class="flex justify-center items-center w-full h-[511px] p-4 bg-background-primary rounded-lg border border-border"
+      >
+        <div class="flex flex-col justify-center text-2xl">
+          <h2 class="text-2xl text-foreground font-bold text-center mb-2">
+            Nada foi encontrado
+          </h2>
+          <p class="text-xl text-foreground-muted text-center">
+            Tente realizar uma nova busca
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

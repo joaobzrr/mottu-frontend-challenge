@@ -1,0 +1,21 @@
+<div
+  [ngClass]="{
+    'absolute right-0 top-0 z-2 flex justify-center items-center bg-white rounded-bl-full transition-[width,height] duration-[300ms]': true,
+    'w-14 h-14': on,
+    'w-0 h-0': !on,
+  }"
+></div>
+<div class="p-2 absolute right-0 top-0 z-2">
+  <button (click)="onClicked()" class="cursor-pointer">
+    <ng-icon
+      *ngIf="on; else outline"
+      name="bootstrapHeartFill"
+      size="24"
+      color="hsl(var(--background-primary))"
+    >
+    </ng-icon>
+    <ng-template #outline>
+      <ng-icon name="bootstrapHeart" size="24" color="white"></ng-icon>
+    </ng-template>
+  </button>
+</div>

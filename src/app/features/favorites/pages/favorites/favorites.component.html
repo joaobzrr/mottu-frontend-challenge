@@ -1,0 +1,41 @@
+<div class="flex justify-center">
+  <div class="mt-10 px-6 w-full max-w-[1002px]">
+    <div class="flex justify-between items-center mb-10">
+      <h1 class="font-creepster text-[length:--creeper-size] title">
+        Favoritos
+      </h1>
+    </div>
+    <div
+      *ngIf="((favorites$ | async) ?? []).length > 0; else empty"
+      class="pb-10"
+    >
+      <app-char-grid
+        [chars]="(favorites$ | async) ?? []"
+        [favorites]="(favorites$ | async) ?? []"
+      >
+      </app-char-grid>
+    </div>
+    <ng-template #empty>
+      <div
+        class="flex justify-center items-center w-full h-[511px] p-4 bg-background-primary rounded-lg border border-border"
+      >
+        <div class="flex flex-col justify-center gap-y-4">
+          <h2 class="text-2xl text-foreground font-bold text-center">
+            Parece que você ainda não tem favoritos
+          </h2>
+          <p class="text-xl text-foreground-muted text-center">
+            Volte à pagina inicial e escolha os melhores para você
+          </p>
+          <div class="flex justify-center">
+            <a
+              routerLink="/"
+              class="px-4 py-2 bg-white text-background-primary font-bold text-sm rounded-lg"
+            >
+              Voltar ao início
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
