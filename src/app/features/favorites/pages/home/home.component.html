@@ -1,12 +1,12 @@
 <div class="flex justify-center">
-  <div class="mt-10 px-6 w-full max-w-[1002px]">
+  <div class="mt-10 px-6 w-full max-w-[1002px] mb-10">
     <div class="flex justify-between items-center mb-10">
       <h1 class="font-creepster text-[length:--creeper-size] title">Início</h1>
       <app-search-input> </app-search-input>
     </div>
     <div
       *ngIf="((searchResults$ | async) ?? []).length > 0; else empty"
-      [ngClass]="{ 'pb-10 w-full': true, 'opacity-50': loading$ | async }"
+      [ngClass]="{ 'w-full': true, 'opacity-50': loading$ | async }"
     >
       <app-char-grid
         [chars]="(searchResults$ | async) ?? []"
